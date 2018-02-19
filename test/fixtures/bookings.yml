@@ -1,19 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  start_date: 2018-02-19
+  end_date: 2018-02-19
+  status: MyString
+  paid: false
   user: one
   service: one
-  start_date: 2018-02-19
-  end_date: 2018-02-19
-  price: 1
-  paid: false
-  status: MyString
 
 two:
-  user: two
-  service: two
   start_date: 2018-02-19
   end_date: 2018-02-19
-  price: 1
-  paid: false
   status: MyString
+  paid: false
+  user: two
+  service: two
