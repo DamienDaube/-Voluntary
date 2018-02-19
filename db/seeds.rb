@@ -46,7 +46,7 @@ users_attributes = [
   {
     first_name: 'Luc',
     id: 6,
-    email:    'damien.daue@gmail.com',
+    email:    'damien.dae@gmail.com',
     password: '123456',
   }
 ]
