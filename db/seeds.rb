@@ -16,26 +16,38 @@ users_attributes = [
   {
     first_name: 'Jean',
     id: 1,
+    email:    'damie.daube@gmail.com',
+    password: '123456',
   },
   {
     first_name: 'John',
     id: 2,
+    email:    'damien.daube@gmail.com',
+    password: '123456',
   },
   {
     first_name: 'Jack',
     id: 3,
+    email:    'dami.daube@gmail.com',
+    password: '123456',
   },
   {
     first_name: 'Jane',
     id: 4,
+    email:    'dam.daube@gmail.com',
+    password: '123456',
   },
   {
     first_name: 'Paul',
     id: 5,
+    email:    'd.daube@gmail.com',
+    password: '123456',
   },
   {
     first_name: 'Luc',
     id: 6,
+    email:    'damien.daue@gmail.com',
+    password: '123456',
   }
 ]
 User.create!(users_attributes)
