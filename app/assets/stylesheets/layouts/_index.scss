@@ -9,10 +9,6 @@ body {
   color: white;
 }
 
-h2 {
-  margin: 0;
-}
-
 .container{
   text-align: center;
 }
@@ -26,7 +22,6 @@ h2 {
   border-radius: 20px;
   padding-top: 3px;
   padding-bottom: 3px;
-  padding-left: 45px;
   margin: 8px;
 
 }
@@ -46,5 +41,18 @@ h2 {
 #main-list-title {
   padding-left: 20px;
   margin-bottom: 20px;
+}
+
+.btn {
+  background: $reverse-gradient !important;
+  color: white;
+  border-radius: 7px;
+  border-style: none;
+
+}
+
+.btn:hover{
+  color: white;
+  opacity:0.6;
 }
 
