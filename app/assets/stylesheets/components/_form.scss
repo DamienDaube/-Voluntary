@@ -5,9 +5,29 @@ h2 {
 }
 
 .form-control {
-  border-radius: 5px;
+  border-radius: 7px;
+}
+
+.form-actions {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background: $reverse-gradient !important;
+  color: white;
+  border-radius: 7px;
+  border-style: none;
+}
+
+.btn:hover {
+  color: $link-grey;
+}
+
+a {
+  color: white;
 }
 
 a:hover {
   text-decoration: none;
+  color: $link-grey;
 }
