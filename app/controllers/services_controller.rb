@@ -11,7 +11,6 @@ class ServicesController < ApplicationController
     if @service.save
       redirect_to service_path(@service)
     else
-      raise
       render :new
     end
   end
