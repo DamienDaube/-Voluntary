@@ -15,8 +15,21 @@ class ServicesController < ApplicationController
     end
   end
 
+  # def index
+  #   @services = policy_scope(Service)
+  # end
+
+  def index_service_categories
+    @categories = Service.pluck(:category).uniq
+    authorize Service.new
+  end
+
   def index
-    @services = policy_scope(Service)
+    @services = ServicePolicy::Scope.new(current_user, Service).list_all
+  end
+
+  def index_services_by_category
+    @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
   end
 
   def show
