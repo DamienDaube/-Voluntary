@@ -26,18 +26,18 @@ class ServicePolicy < ApplicationPolicy
     true
   end
 
-  class Scope < Scope
-    def list_all
-      scope.all
-    end
+  # class Scope < Scope
+  #   def list_all
+  #     scope.all
+  #   end
 
-    def list_filtered(category)
-      scope.where(category: category)
-    end
+  #   def list_filtered(category)
+  #     scope.where(category: category)
+  #   end
 
 
     # def resolve
     #   scope.all
     # end
-  end
+  # end
 end
