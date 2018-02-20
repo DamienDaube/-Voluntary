@@ -1,10 +1,13 @@
 class ServicesController < ApplicationController
+
   def new
     @service = Service.new
+    authorize @service
   end
 
   def create
     @service = Service.new(service_params)
+    authorize @service
     if @service.save
       redirect to services_path(@service)
     else
@@ -17,7 +20,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @service = Service.find(params:[id])
+    @service = Service.find(params[:id])
   end
 
   def destroy
