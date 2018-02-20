@@ -9,8 +9,9 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     authorize @service
     if @service.save
-      redirect to services_path(@service)
+      redirect_to service_path(@service)
     else
+      raise
       render :new
     end
   end
@@ -28,12 +29,12 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     authorize @service
     @service.destroy
-    redirect_to root
+    redirect_to services_path
   end
 
   private
 
   def service_params
-    params.require(:service).permit(:category,:price)
+    params.require(:service).permit(:category,:price, :id)
   end
 end
