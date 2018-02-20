@@ -1,22 +1,20 @@
 class BookingsController < ApplicationController
-
-  def new
-    @service = Service.find(params[:id])
-    @booking = Booking.new
-  end
-
   def index
     @bookings = Booking.all
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @service = Service.find(params[:id])
+    @service = Service.find(params[:service_id])
     @booking.service = @service
+    @booking.status = "pending"
+    @booking.paid = false
+    @booking.user = current_user
+    authorize @booking
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to service_categories_path
     else
-      render :new
+      redirect_to service_category_path(@service.category)
     end
   end
 
@@ -41,7 +39,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :status, :paid)
+    params.require(:booking).permit(:start_date, :end_date, :status, :paid, :service_id)
   end
 
 end
