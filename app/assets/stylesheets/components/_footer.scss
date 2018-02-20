@@ -1,4 +1,4 @@
-.footer {
+.navbar-fixed-bottom {
   background: -webkit-linear-gradient(left, #6a11cb, #2575fc);
   display: flex;
   align-items: center;
@@ -7,25 +7,23 @@
   padding: 0px 10px;
   color: rgba(0,0,0,0.3);
 }
-.footer-links {
+.navbar-links {
   display: flex;
   align-items: center;
 }
-.footer-links a {
+.navbar-links a {
   color: white;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
-.footer-links a:hover {
+.navbar-links a:hover {
   color: white;
   opacity:0.6;
 }
-.footer .fa-heart {
-  color: #D23333;
+.navbar-copyright h1 {
+  font-family: Open Sans;
+  font-size: 14px;
+  color: white;
 }
-
-// .footer{
-//  flex-shrink: 0;
-// }
