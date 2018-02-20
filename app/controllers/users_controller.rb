@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+  USER_ROLES = ["beneficiary", "sponsor", "provider", "admin"]
+
   before_action :set_user, only: [:show, :edit, :update]
 
-  def show
+  def show?
+    record.user == user
   end
 
   def create
