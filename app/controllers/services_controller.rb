@@ -30,6 +30,7 @@ class ServicesController < ApplicationController
 
   def index_services_by_category
     @services = Service.where(category: params[:category])
+    @booking = Booking.new
     authorize Service.new
     # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
   end

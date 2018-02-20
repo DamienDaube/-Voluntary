@@ -6,14 +6,20 @@
         <h3><% @services.each do |service| %></h3>
         <p> ID: <%= service.id %> </p>
         <p> Name: <%= service.user.first_name %> <%= service.user.last_name %></p>
-        <p> Price: <%= service.price %></p>
-        <p> <%= link_to "Book me", service_bookings_path(service), method: :post %></p>
+        <p> Price: <%= service.price %></p>$
+
+        <%= simple_form_for [service, @booking] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Book", class: "btn btn-primary" %>
+        <% end %>
+
         <p> <%= link_to "Delete service", service_path(service),
             method: :delete,
             data: { confirm: "Are you sure?" },
            class: "btn btn-danger"%></p>
-           <p><%= link_to "Back to service list", service_categories_path %></p>
       <% end %>
+      <p><%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %></p>
     </div>
   </div>
 </div>
