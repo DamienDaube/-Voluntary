@@ -1,16 +1,20 @@
 
-<div class="container">
-  <h1 id="main-list-title">Services</h1>
+<div class="container_services">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <h1 id="main-list-title">Services</h1>
+    </div>
   <div class="row">
     <% @services.each do |service| %>
-      <div class="col-xs-12 col-sm-4">
-          <div class="card-description">
-            <h2><%= link_to service.category, service_path(service) %> </h2>
+      <div class="col-md-6 col-md-offset-1">
+          <div class="list-description">
+            <h2><%= link_to service.category, services_path(service) %> </h2>
           </div>
       </div>
     <% end %>
   </div>
 </div>
+
 <hr>
 <div class="container">
   <div class="row">

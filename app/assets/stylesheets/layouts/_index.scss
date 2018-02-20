@@ -3,3 +3,49 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+
+
+body {
+  background: -webkit-linear-gradient(left, #6a11cb, #2575fc);
+  color: white;
+}
+
+h2 {
+  margin: 0;
+}
+
+.container{
+  text-align: center;
+}
+
+.footer{
+ flex-shrink: 0;
+}
+
+.list-description {
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.07), 2px 2px 2px 2px rgba(0,0,0,0.07);
+  border-radius: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 45px;
+  margin: 8px;
+
+}
+
+.list-description a{
+  text-decoration: none;
+  color: white;
+  opacity:0.8;
+  font-size: 32px;
+}
+
+.list-description:hover{
+  color: white;
+  opacity:0.6;
+}
+
+#main-list-title {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
