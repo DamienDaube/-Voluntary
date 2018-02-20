@@ -105,4 +105,18 @@ services_attributes = [
 
 Service.create!(services_attributes)
 
+bookings_attributes = [
+  {
+    start_date:               Date.today,
+    end_date:                 Date.new(2019, 2, 3),
+    status:                   'Confirmed',
+    paid:                     true,
+    user:                     User.find(3),
+    service:                  Service.find(3),
+
+  },
+]
+
+Booking.create!(bookings_attributes)
+
 puts 'Finished! Services have been created!'
