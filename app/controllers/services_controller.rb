@@ -11,13 +11,27 @@ class ServicesController < ApplicationController
     if @service.save
       redirect_to service_path(@service)
     else
-      raise
       render :new
     end
   end
 
-  def index
-    @services = policy_scope(Service)
+  # def index
+  #   @services = policy_scope(Service)
+  # end
+
+  def index_service_categories
+    @categories = Service.pluck(:category).uniq
+    authorize Service.new
+  end
+
+  # def index
+  #   @services = ServicePolicy::Scope.new(current_user, Service).list_all
+  # end
+
+  def index_services_by_category
+    @services = Service.where(category: params[:category])
+    authorize Service.new
+    # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
   end
 
   def show
@@ -29,7 +43,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     authorize @service
     @service.destroy
-    redirect_to services_path
+    redirect_to service_categories_path
   end
 
   private

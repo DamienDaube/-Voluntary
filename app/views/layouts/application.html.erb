@@ -10,18 +10,19 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-
     <% if user_signed_in? %>
       <%= render 'shared/navbar' %>
     <% else %>
       <%= render 'shared/limitednavbar' %>
     <% end %>
+    <%= render 'shared/flashes' %>
 
-    <p class="alert"><%= alert %></p>
     <%= yield %>
+
     <div>
     <%= render 'shared/footer' %>
     </div>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

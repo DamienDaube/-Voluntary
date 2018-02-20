@@ -96,7 +96,11 @@ services_attributes = [
   {
     category:                'Get a haircut',
     user_id:                  6,
-  }
+  },
+  {
+    category:                'Get assistance',
+    user_id:                  5,
+  },
 ]
 
 Service.create!(services_attributes)
