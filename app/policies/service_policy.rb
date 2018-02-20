@@ -17,7 +17,7 @@ class ServicePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(user.role = "beneficiary" || user.role "admin")
+      scope.where(:user.role = "beneficiary" || :user.role "admin")
     end
   end
 end
