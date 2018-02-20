@@ -16,15 +16,17 @@ class ServicesController < ApplicationController
   end
 
   def index
-    @services = Service.all
+    @services = policy_scope(Service)
   end
 
   def show
     @service = Service.find(params[:id])
+    authorize @service
   end
 
   def destroy
     @service = Service.find(params[:id])
+    authorize @service
     @service.destroy
     redirect_to root
   end

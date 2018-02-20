@@ -3,19 +3,17 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update]
 
-  def show?
-    record.user == user
-  end
-
-  def create
-    @user = User.new(user_params)
+  def show
+    authorize @user
   end
 
   def edit
+    authorize @user
   end
 
   def update
     @user.update(user_params)
+    authorize @user
   end
 
   private
