@@ -34,5 +34,4 @@ class ServicesController < ApplicationController
   def service_params
     params.require(:service).permit(:category,:price)
   end
-
 end
