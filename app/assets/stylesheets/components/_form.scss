@@ -4,6 +4,10 @@ h2 {
   margin-bottom: 35px;
 }
 
+.hint-text {
+  color: white
+}
+
 .form-control {
   border-radius: 7px;
 }
@@ -17,6 +21,7 @@ h2 {
   color: white;
   border-radius: 7px;
   border-style: none;
+  margin-bottom: 10px;
 }
 
 .btn:hover {
@@ -25,9 +30,11 @@ h2 {
 
 a {
   color: white;
-}
+  font-size: 16px;
+  }
 
 a:hover {
   text-decoration: none;
-  color: $link-grey;
+  color: white;
+  opacity: 0.6;
 }
