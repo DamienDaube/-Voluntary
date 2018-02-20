@@ -75,30 +75,37 @@ User.create!(users_attributes)
 
 services_attributes = [
   {
+    id:                       1,
     category:                'Get assistance',
     user_id:                  1,
   },
   {
+    id:                       2,
     category:                'Find a room',
     user_id:                  2,
   },
   {
+    id:                       3,
     category:                'See a doctor',
     user_id:                  3,
   },
   {
+    id:                       4,
     category:                'Eat some food',
     user_id:                  4,
   },
   {
+    id:                       5,
     category:                'Have a shower',
     user_id:                  5,
   },
   {
+    id:                       6,
     category:                'Get a haircut',
     user_id:                  6,
   },
   {
+    id:                       7,
     category:                'Get assistance',
     user_id:                  5,
   },
@@ -112,8 +119,8 @@ bookings_attributes = [
     end_date:                 Date.new(2019, 2, 3),
     status:                   'Confirmed',
     paid:                     true,
-    user:                     User.find(3),
-    service:                  Service.find(3),
+    user_id:                     1,
+    service_id:                  2,
 
   },
 ]
