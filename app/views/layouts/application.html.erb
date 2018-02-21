@@ -16,9 +16,11 @@
       <%= render 'shared/limitednavbar' %>
     <% end %>
 
+    <div>
+      <%= render 'shared/flashes' %>
+    </div>
 
     <div class="page-content">
-      <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
 

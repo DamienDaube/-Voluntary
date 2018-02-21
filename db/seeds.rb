@@ -10,128 +10,49 @@ Booking.destroy_all
 Service.destroy_all
 User.destroy_all
 
-puts 'Creating services...'
 puts 'Creating users...'
 
-users_attributes = [
-  {
-    first_name: 'Jean',
-    last_name: 'Gabin',
+15.times do
+  User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     role: 'provider',
-    id: 1,
-    email:    'damie.daube@gmail.com',
-    password: '123456',
-  },
-  {
-    first_name: 'John',
-    last_name: 'Lennon',
-    role: 'provider',
-    id: 2,
-    email:    'damien.daube@gmail.com',
-    password: '123456',
-  },
-  {
-    first_name: 'Jack',
-    last_name: 'Dawson',
-    role: 'provider',
-    id: 3,
-    email:    'dami.daube@gmail.com',
-    password: '123456',
-  },
-  {
-    first_name: 'Jane',
-    last_name: 'Birkin',
-    role: 'provider',
-    id: 4,
-    email:    'dam.daube@gmail.com',
-    password: '123456',
-  },
-  {
-    first_name: 'Paul',
-    last_name: 'Mc Cartney',
-    role: 'provider',
-    id: 5,
-    email:    'd.daube@gmail.com',
-    password: '123456',
-  },
-  {
-    first_name: 'Nico',
-    last_name: 'SDF1',
-    role: 'provider',
-    id: 6,
-    email:    'sdf1@gmail.com',
-    password: '123456',
-  },
-   {
-    first_name: 'Damien',
-    last_name: 'SDF2',
-    role: 'beneficiary',
-    id: 7,
-    email:    'sdf2@gmail.com',
-    password: '123456',
-  }
-]
-User.create!(users_attributes)
+    email: Faker::Internet.email,
+    password: '123456'
+    ).save
+end
 
-services_attributes = [
-  {
-    id:                       1,
-    category:                'Get assistance',
-    user_id:                  1,
-    address:                  '16 Villa Gaudelet, Paris',
-  },
-  {
-    id:                       2,
-    category:                'Find a room',
-    user_id:                  2,
-    address:                  '20 Avenue des Champs Elysées, Paris',
-  },
-  {
-    id:                       3,
-    category:                'See a doctor',
-    user_id:                  3,
-    address:                  '6 rue Saint-Maur, Paris',
-  },
-  {
-    id:                       4,
-    category:                'Eat some food',
-    user_id:                  4,
-    address:                  '8 rue Oberkampf, Paris',
-  },
-  {
-    id:                       5,
-    category:                'Have a shower',
-    user_id:                  5,
-    address:                  '15 rue des Abbesses, Paris',
-  },
-  {
-    id:                       6,
-    category:                'Get a haircut',
-    user_id:                  6,
-    address:                  '15 rue Montaigne, Paris',
-  },
-  {
-    id:                       7,
-    category:                'Get assistance',
-    user_id:                  5,
-    address:                  '15 rue Campagne première, Paris',
-  },
-]
+User.new(
+first_name: 'Damien',
+last_name: 'Daube',
+role: 'beneficiary',
+email: 'sdf@gmail.com',
+password: '123456'
+).save
 
-Service.create!(services_attributes)
+puts 'Creating services...'
 
-bookings_attributes = [
-  {
-    start_date:               Date.today,
-    end_date:                 Date.new(2019, 2, 3),
-    status:                   'Confirmed',
-    paid:                     true,
-    user_id:                     1,
-    service_id:                  2,
+20.times do
+  Service.new(
+    category: ['Get assistance', 'Find a room', 'See a doctor', 'Eat some food', 'Have a shower', 'Get a haircut'].sample,
+    address: Faker::Address.street_address,
+    price: rand(100),
+    user_id: rand(15),
+    ).save
+  puts "DONE"
+end
 
-  },
-]
+puts 'Creating bookings...'
 
-Booking.create!(bookings_attributes)
+20.times do
+  Booking.new(
+    start_date: Faker::Date.between(Date.today, 5.days.from_now),
+    end_date: Faker::Date.between(5.days.from_now, 7.days.from_now),
+    status: 'Pending',
+    paid: false,
+    user_id: rand(15),
+    service_id: rand(20),
+    ).save
+end
 
-puts 'Finished! Services have been created!'
+puts 'Finished!'
