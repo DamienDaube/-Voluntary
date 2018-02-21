@@ -1,10 +1,5 @@
 class ServicesController < ApplicationController
 
-  def new
-    @service = Service.new
-    authorize @service
-  end
-
   def create
     @service = Service.new(service_params)
     authorize @service
@@ -32,12 +27,16 @@ class ServicesController < ApplicationController
     @services = Service.where(category: params[:category])
     @booking = Booking.new
     authorize Service.new
-    # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
-  end
 
-  def show
-    @service = Service.find(params[:id])
-    authorize @service
+    @services = Service.where.not(latitude: nil, longitude: nil)
+
+    @markers = @services.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+      }
+    end
+    # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
   end
 
   def destroy

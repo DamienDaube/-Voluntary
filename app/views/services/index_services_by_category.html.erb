@@ -13,7 +13,6 @@
               </button>
             </div>
             <!-- Button trigger modal -->
-
             <!-- Modal -->
             <div class="modal fade" id="booking-service-<%= service.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -31,7 +30,14 @@
           <% end %>
         </div>
       </div>
-    </div>
+  </div>
   <!-- </div> -->
   <%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %>
 </div>
+
+<div
+  id="map"
+  style="width: 100vh;
+  height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+></div>
