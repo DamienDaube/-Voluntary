@@ -1,3 +1,26 @@
+<div class="container detail">
+  <div class="row">
+    <h1>TEST</h1>
+    <% @services.each do |service| %>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <p> Name: <%= service.user.first_name %> <%= service.user.last_name %></p>
+      <p> Price: <%= service.price %> €</p>
+
+      <%= simple_form_for [service, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "Book", class: "btn btn-primary" %>
+      <% end %>
+
+      <p> <%= link_to "Delete service", service_path(service),
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-danger"%></p>
+    </div>
+    <% end %>
+
+    <p><%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %></p>
+
 <div class="main-container">
 <!--   <div class="content"> -->
     <div class="row">
@@ -30,14 +53,15 @@
           <% end %>
         </div>
       </div>
+
   </div>
   <!-- </div> -->
   <%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %>
 </div>
 
-<div
-  id="map"
+<!-- <div>
+  id="map";
   style="width: 100vh;
   height: 100vh;"
   data-markers="<%= @markers.to_json %>"
-></div>
+</div> -->

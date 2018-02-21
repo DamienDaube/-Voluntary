@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   resources :services, only: [:create, :destroy] do
-    resources :bookings, only: [:create, :update, :destroy]
+    resources :bookings, only: [:create]
   end
 
   resources :bookings, only: [:update, :destroy]
