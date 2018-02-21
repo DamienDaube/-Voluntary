@@ -78,36 +78,43 @@ services_attributes = [
     id:                       1,
     category:                'Get assistance',
     user_id:                  1,
+    address:                  '16 Villa Gaudelet, Paris',
   },
   {
     id:                       2,
     category:                'Find a room',
     user_id:                  2,
+    address:                  '20 Avenue des Champs Elysées, Paris',
   },
   {
     id:                       3,
     category:                'See a doctor',
     user_id:                  3,
+    address:                  '6 rue Saint-Maur, Paris',
   },
   {
     id:                       4,
     category:                'Eat some food',
     user_id:                  4,
+    address:                  '8 rue Oberkampf, Paris',
   },
   {
     id:                       5,
     category:                'Have a shower',
     user_id:                  5,
+    address:                  '15 rue des Abbesses, Paris',
   },
   {
     id:                       6,
     category:                'Get a haircut',
     user_id:                  6,
+    address:                  '15 rue Montaigne, Paris',
   },
   {
     id:                       7,
     category:                'Get assistance',
     user_id:                  5,
+    address:                  '15 rue Campagne première, Paris',
   },
 ]
 

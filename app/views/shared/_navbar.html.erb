@@ -7,7 +7,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Agenda</a>
+    <%= link_to "Agenda", user_path(current_user.id), class:"navbar-wagon-item navbar-wagon-link"  %>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Wallet</a>
 
     <!-- Profile picture with dropdown list -->
