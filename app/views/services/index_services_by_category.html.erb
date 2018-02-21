@@ -1,24 +1,37 @@
+<div class="main-container">
+<!--   <div class="content"> -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="cards-container">
+          <h1><%= @services.first.category %></h1>
+          <% @services.each do |service| %>
+            <div class="card" style="background-image: url()">
+              <h2>Name: <%= service.user.first_name %> <%= service.user.last_name %></h2>
+              <h2>Price: <%= service.price %> €</h2>
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#booking-service-<%= service.id %>">
+                Book now!
+              </button>
+            </div>
+            <!-- Button trigger modal -->
 
-<div class="container">
-  <div class="row">
-    <h1><%= @services.first.category %></h1>
-    <% @services.each do |service| %>
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <p> Name: <%= service.user.first_name %> <%= service.user.last_name %></p>
-      <p> Price: <%= service.price %> €</p>
-
-      <%= simple_form_for [service, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit "Book", class: "btn btn-primary" %>
-      <% end %>
-
-      <p> <%= link_to "Delete service", service_path(service),
-      method: :delete,
-      data: { confirm: "Are you sure?" },
-      class: "btn btn-danger"%></p>
-      <% end %>
-      <p><%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %></p>
+            <!-- Modal -->
+            <div class="modal fade" id="booking-service-<%= service.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Booking <%= service.category %></h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= render 'bookings/new_booking', service: service, booking: Booking.new  %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
+  <!-- </div> -->
+  <%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %>
 </div>
