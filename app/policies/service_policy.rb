@@ -1,16 +1,7 @@
 class ServicePolicy < ApplicationPolicy
 
-
-  def new?
-    ["provider", "admin"].include?(user.role)
-  end
-
   def create?
     ["provider", "admin"].include?(user.role)
-  end
-
-  def show?
-    true
   end
 
   def destroy?

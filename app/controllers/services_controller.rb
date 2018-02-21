@@ -1,10 +1,5 @@
 class ServicesController < ApplicationController
 
-  def new
-    @service = Service.new
-    authorize @service
-  end
-
   def create
     @service = Service.new(service_params)
     authorize @service
@@ -33,11 +28,6 @@ class ServicesController < ApplicationController
     @booking = Booking.new
     authorize Service.new
     # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
-  end
-
-  def show
-    @service = Service.find(params[:id])
-    authorize @service
   end
 
   def destroy
