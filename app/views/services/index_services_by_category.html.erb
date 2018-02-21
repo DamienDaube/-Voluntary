@@ -1,23 +1,22 @@
 
 <div class="container">
   <div class="row">
-    <h1> <%= params[:category] %> </h1>
+    <h1><%= @services.first.category %></h1>
+    <% @services.each do |service| %>
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <h3><% @services.each do |service| %></h3>
-        <p> ID: <%= service.id %> </p>
-        <p> Name: <%= service.user.first_name %> <%= service.user.last_name %></p>
-        <p> Price: <%= service.price %></p>$
+      <p> Name: <%= service.user.first_name %> <%= service.user.last_name %></p>
+      <p> Price: <%= service.price %> €</p>
 
-        <%= simple_form_for [service, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.submit "Book", class: "btn btn-primary" %>
-        <% end %>
+      <%= simple_form_for [service, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "Book", class: "btn btn-primary" %>
+      <% end %>
 
-        <p> <%= link_to "Delete service", service_path(service),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-           class: "btn btn-danger"%></p>
+      <p> <%= link_to "Delete service", service_path(service),
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-danger"%></p>
       <% end %>
       <p><%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %></p>
     </div>
