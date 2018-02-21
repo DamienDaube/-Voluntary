@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount ForestLiana::Engine => '/forest'
   devise_for :users
-  root to: 'services#index_service_categories'
+  root 'users#show'
 
   get '/services', to: 'services#index_service_categories', as: :service_categories
   get '/services/:category', to: 'services#index_services_by_category', as: :service_category

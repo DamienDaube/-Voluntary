@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @bookings = Booking.where(user: current_user)
     @user = current_user
+    @service = Service.new()
     authorize @user
   end
 
