@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/services', to: 'services#index_service_categories', as: :service_categories
   get '/services/:category', to: 'services#index_services_by_category', as: :service_category
+  get '/users/:id', to: 'users#show', as: 'user'
 
   resources :services, except: [:index] do
     resources :bookings, only: [:new, :create]
