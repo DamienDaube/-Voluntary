@@ -30,15 +30,13 @@
           <% end %>
         </div>
       </div>
+      <div class="col-md-6">
+        <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
+      </div>
 
   </div>
 
   <%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %>
 </div>
 
-<!-- <div>
-  id="map";
-  style="width: 100vh;
-  height: 100vh;"
-  data-markers="<%= @markers.to_json %>"
-</div> -->
+
