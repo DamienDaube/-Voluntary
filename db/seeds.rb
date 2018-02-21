@@ -10,8 +10,9 @@ Booking.destroy_all
 Service.destroy_all
 User.destroy_all
 
-puts 'Creating services...'
 puts 'Creating users...'
+puts 'Creating services...'
+puts 'Creating bookings...'
 
 users_attributes = [
   {
