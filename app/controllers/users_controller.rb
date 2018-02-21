@@ -1,28 +1,29 @@
 class UsersController < ApplicationController
   USER_ROLES = ["beneficiary", "sponsor", "provider", "admin"]
 
-  # before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
 
-  # def show
-  #   authorize @user
-  # end
+  def show
+    @bookings = Booking.where(user: current_user)
+    authorize @user
+  end
 
-  # def edit
-  #   authorize @user
-  # end
+  def edit
+    authorize @user
+  end
 
-  # def update
-  #   @user.update(user_params)
-  #   authorize @user
-  # end
+  def update
+    @user.update(user_params)
+    authorize @user
+  end
 
-  # private
+  private
 
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :role)
+  end
 
-  # def user_params
-  #   params.require(:user).permit(:first_name, :last_name, :email)
-  # end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
