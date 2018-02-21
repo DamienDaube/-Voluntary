@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container detail">
   <div class="row">
     <h1><%= @services.first.category %></h1>
     <% @services.each do |service| %>
@@ -22,3 +22,10 @@
     </div>
   </div>
 </div>
+
+<div
+  id="map"
+  style="width: 100vh;
+  height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+></div>
