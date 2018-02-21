@@ -1,7 +1,6 @@
-
 <div class="container detail">
   <div class="row">
-    <h1><%= @services.first.category %></h1>
+    <h1>TEST</h1>
     <% @services.each do |service| %>
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <p> Name: <%= service.user.first_name %> <%= service.user.last_name %></p>
@@ -17,15 +16,17 @@
       method: :delete,
       data: { confirm: "Are you sure?" },
       class: "btn btn-danger"%></p>
-      <% end %>
-      <p><%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %></p>
     </div>
+    <% end %>
+
+    <p><%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %></p>
+
   </div>
 </div>
 
-<div
-  id="map"
+<!-- <div>
+  id="map";
   style="width: 100vh;
   height: 100vh;"
   data-markers="<%= @markers.to_json %>"
-></div>
+</div> -->
