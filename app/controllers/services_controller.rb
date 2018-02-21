@@ -2,11 +2,13 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
+    @service.lat = 0
+    @service.lng = 0
     authorize @service
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to user_path(current_user)
     else
-      render :new
+      redirect_to user_path(current_user)
     end
   end
 
@@ -49,6 +51,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:category,:price, :id)
+    params.require(:service).permit(:category,:price, :id, :address)
   end
 end

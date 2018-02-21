@@ -20,6 +20,14 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def after_sign_in_path_for(resource_or_scope)
+    if current_user.role == "beneficiary"
+      service_categories_path
+    elsif current_user.role == "provider"
+      user_path(current_user)
+    end
+  end
+
   private
 
   def skip_pundit?
