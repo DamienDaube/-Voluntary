@@ -9,33 +9,28 @@
   align-items: center;
   justify-content: space-between;
 }
-
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
   color:white;
 }
-
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
-
 /* Right section */
 .navbar-wagon-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
 }
-
 /* Navbar link */
 .navbar-wagon-link {
   font-size: 18px;
@@ -52,9 +47,7 @@
   opacity:0.3;
   text-decoration: none;
 }
-
 /* Dropdown menu */
-
 .fas fa-caret-square-down{
   height: 20px;
 }
@@ -79,4 +72,3 @@
   background: transparent !important;
   color: white !important;
 }
-
