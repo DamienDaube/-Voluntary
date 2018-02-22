@@ -1,23 +1,42 @@
 .card {
-  background-size: cover;
-  background-position: center;
-  background: rgba(51, 51, 51, 0.2);
+  height: 175px;
   border-radius: 10px;
   padding-bottom: 15px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
   margin: 15px 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  width: 80%;
   font-size: 25px;
-  color: white;
-  font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
   button {
-    margin: auto;
-    display: block;
+    margin: 110px 45%;
+    position: relative;
+    z-index: 1000;
+  }
+  .card-background {
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 h1 {
   margin-left: 110px;
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
 }
 h2 {
   font-size: 25px;
@@ -30,3 +49,25 @@ h4 {
 .btn {
   margin: 15px;
 }
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 20px;
+  opacity: 0.7;
+  font-weight: lighter;
+  margin-left: 8px;
+}
+

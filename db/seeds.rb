@@ -19,7 +19,7 @@ puts 'Creating users...'
     role: 'provider',
     email: Faker::Internet.email,
     password: '123456'
-    ).save
+    ).save!
 end
 
 User.new(
@@ -28,7 +28,7 @@ last_name: 'Daube',
 role: 'beneficiary',
 email: 'sdf@gmail.com',
 password: '123456'
-).save
+).save!
 
 puts 'Creating services...'
 
@@ -37,8 +37,8 @@ puts 'Creating services...'
     category: ['Get assistance', 'Find a room', 'See a doctor', 'Eat some food', 'Have a shower', 'Get a haircut'].sample,
     address: Faker::Address.street_address,
     price: rand(100),
-    user_id: rand(15),
-    ).save
+    user_id: rand(1..15),
+    ).save!
   puts "DONE"
 end
 
@@ -50,9 +50,9 @@ puts 'Creating bookings...'
     end_date: Faker::Date.between(5.days.from_now, 7.days.from_now),
     status: 'pending',
     paid: false,
-    user_id: rand(15),
-    service_id: rand(20),
-    ).save
+    user_id: rand(1..15),
+    service_id: rand(1..20),
+    ).save!
 end
 
 puts 'Finished!'
