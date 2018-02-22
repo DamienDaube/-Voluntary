@@ -42,14 +42,14 @@ class ServicesController < ApplicationController
     @booking = Booking.new
     authorize Service.new
 
-    # @services = @services.where.not(latitude: nil, longitude: nil)
+    @services_for_marker = @services.where.not(latitude: nil, longitude: nil)
 
-    # @markers = @services.map do |service|
-    #   {
-    #     lat: service.latitude,
-    #     lng: service.longitude,
-    #   }
-    # end
+    @markers = @services_for_marker.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+      }
+    end
     # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
   end
 

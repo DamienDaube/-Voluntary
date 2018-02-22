@@ -2,12 +2,16 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
       <div class="cards-container">
-        <h1><%= @services.first.category %></h1>
         <% @services.each do |service| %>
-          <div class="card" style="background-image: url()">
-            <h2><%= service.user.first_name %> <%= service.user.last_name %></h2>
-            <h2><%= service.price %> €</h2>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#booking-service-<%= service.id %>">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url()">
+            <div class="class card-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url()""></div>
+            <div class="card-category"> <%= @services.first.category %></div>
+              <div class="card-description">
+                <h2><%= service.user.first_name %> <%= service.user.last_name %></h2>
+                <p><%= service.price %> €</p>
+              </div>
+              <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/DamienDaube">
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#booking-service-<%= service.id %>">
               Book
             </button>
           </div>
