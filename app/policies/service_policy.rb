@@ -20,9 +20,5 @@ class ServicePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-    # def list_filtered(category)
-    #   scope.where(category: category)
-    # end
   end
 end
