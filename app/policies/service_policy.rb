@@ -1,8 +1,4 @@
 class ServicePolicy < ApplicationPolicy
-  def index?
-    true
-  end
-
   def create?
     ["provider", "admin"].include?(user.role)
   end
