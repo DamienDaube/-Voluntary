@@ -2,14 +2,16 @@ class ServicesController < ApplicationController
 
   def index
     if params[:query].present?
-      @services = policy_scope(Service).where(category: params[:query])
+      @services = policy_scope(Service).where("category ILIKE ?", "%#{params[:query]}%")
+      if !@services.any?
+        redirect_to service_categories_path
+      else
+        @category = @services.first.category
+      end
     else
       @services = policy_scope(Service).all
+      @category = "All services"
     end
-    if !@services.any?
-      redirect_to service_categories_path
-    end
-    authorize @services
   end
 
   def create
