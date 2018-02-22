@@ -1,8 +1,4 @@
 class ServicePolicy < ApplicationPolicy
-  def index?
-    true
-  end
-
   def create?
     ["provider", "admin"].include?(user.role)
   end
@@ -24,9 +20,5 @@ class ServicePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
-    # def list_filtered(category)
-    #   scope.where(category: category)
-    # end
   end
 end

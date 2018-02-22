@@ -2,14 +2,21 @@ class ServicesController < ApplicationController
 
   def index
     if params[:query].present?
-      @services = policy_scope(Service).where(category: params[:query])
+      @services = policy_scope(Service).where("category ILIKE ?", "%#{params[:query]}%")
+      if !@services.any?
+        redirect_to service_categories_path
+      else
+        @category = @services.first.category
+      end
+    elsif params[:category].present?
+      @services = policy_scope(Service).where(category: params[:category])
+      @category = @services.first.category
     else
       @services = policy_scope(Service).all
+      @category = "All services"
     end
-    if !@services.any?
-      redirect_to service_categories_path
-    end
-    authorize @services
+    @booking = Booking.new
+    @services_for_marker = service_geocoding(@services)
   end
 
   def create
@@ -37,21 +44,21 @@ class ServicesController < ApplicationController
   #   @services = ServicePolicy::Scope.new(current_user, Service).list_all
   # end
 
-  def index_services_by_category
-    @services = Service.where(category: params[:category])
-    @booking = Booking.new
-    authorize Service.new
+  # def index_services_by_category
+  #   @services = Service.where(category: params[:category])
+  #   @booking = Booking.new
+  #   authorize Service.new
 
-    @services_for_marker = @services.where.not(latitude: nil, longitude: nil)
+  #   @services_for_marker = @services.where.not(latitude: nil, longitude: nil)
 
-    @markers = @services_for_marker.map do |service|
-      {
-        lat: service.latitude,
-        lng: service.longitude,
-      }
-    end
-    # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
-  end
+  #   @markers = @services_for_marker.map do |service|
+  #     {
+  #       lat: service.latitude,
+  #       lng: service.longitude,
+  #     }
+  #   end
+  #   # @services = ServicePolicy::Scope.new(current_user, Service).list_filtered(params[:category])
+  # end
 
   def destroy
     @service = Service.find(params[:id])
@@ -65,4 +72,17 @@ class ServicesController < ApplicationController
   def service_params
     params.require(:service).permit(:category,:price, :id, :address)
   end
+
+  def service_geocoding(services)
+    @services_for_marker = services.where.not(latitude: nil, longitude: nil)
+
+    @markers = @services_for_marker.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+      }
+    end
+    return @markers
+  end
+
 end
