@@ -48,7 +48,7 @@ puts 'Creating bookings...'
   Booking.new(
     start_date: Faker::Date.between(Date.today, 5.days.from_now),
     end_date: Faker::Date.between(5.days.from_now, 7.days.from_now),
-    status: 'Pending',
+    status: 'pending',
     paid: false,
     user_id: rand(15),
     service_id: rand(20),

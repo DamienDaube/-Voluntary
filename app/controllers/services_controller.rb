@@ -1,5 +1,17 @@
 class ServicesController < ApplicationController
 
+  def index
+    if params[:query].present?
+      @services = policy_scope(Service).where(category: params[:query])
+    else
+      @services = policy_scope(Service).all
+    end
+    if !@services.any?
+      redirect_to service_categories_path
+    end
+    authorize @services
+  end
+
   def create
     @service = Service.new(service_params)
     @service.lat = 0
