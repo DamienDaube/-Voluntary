@@ -6,7 +6,11 @@
         <div class="card-category"> <%= @services.first.category %></div>
           <div class="card-description">
             <h2><%= service.user.first_name %> <%= service.user.last_name %></h2>
-            <p><%= service.price %> €</p>
+            <% if service.price == 0 %>
+              <p style="color: #00FF00"><b>FREE</b></p>
+            <% else  %>
+              <p><%= service.price %> €</p>
+            <% end  %>
           </div>
           <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/DamienDaube">
           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#booking-service-<%= service.id %>">
