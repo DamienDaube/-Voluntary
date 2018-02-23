@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @bookings = Booking.where(user: current_user)
     @user = current_user
     @service = Service.new()
+    @provider_bookings = current_user.provider_bookings
     authorize @user
   end
 
