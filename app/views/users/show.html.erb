@@ -12,6 +12,7 @@
 
           <div class="card-description">
             <h2><%= booking.service.user.first_name %> <%= booking.service.user.last_name %></h2>
+
             <% if booking.service.price == 0 %>
               <p> FREE </p>
             <% else %>
