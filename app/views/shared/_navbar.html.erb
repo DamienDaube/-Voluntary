@@ -8,8 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <%= link_to "Agenda", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Wallet</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Friends</a>
+    <%= link_to "Wallet", new_qr_code_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Search bar -->
     <%= form_tag services_path, method: :get do %>
@@ -39,7 +38,7 @@
         <i class="fas fa-caret-square-down" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Agenda", user_path(current_user) %></li>
-          <li><a href="#">Wallet</a></li>
+          <li><%= link_to "Wallet", new_qr_code_path %></li>
         </ul>
       </div>
     </div>
