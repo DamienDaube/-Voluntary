@@ -21,6 +21,8 @@ gem 'pundit'
 gem 'faker'
 gem 'geocoder'
 gem 'pg_search'
+gem 'cloudinary'
+gem 'carrierwave'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

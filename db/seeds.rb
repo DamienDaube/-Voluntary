@@ -12,32 +12,76 @@ User.destroy_all
 
 puts 'Creating users...'
 
-15.times do
-  User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    role: 'provider',
-    email: Faker::Internet.email,
-    password: '123456'
-    ).save!
-end
+# <-- SEED DEMO -->
 
-User.new(
+url = 'http://res.cloudinary.com/dwa3usnol/image/upload/v1519384644/Pierre.jpg'
+user = User.new(
+first_name: 'Pierre',
+last_name: 'Dr Girbau',
+role: 'beneficiary',
+email: 'homeless@gmail.com',
+password: '123456'
+)
+user.remote_photo_url = url
+user.save!
+
+url = 'http://res.cloudinary.com/dwa3usnol/image/upload/v1519383411/Damien.png'
+provider = User.new(
 first_name: 'Damien',
 last_name: 'Daube',
-role: 'beneficiary',
-email: 'sdf@gmail.com',
+role: 'provider',
+email: 'damien.daube@gmail.com',
+password: '123456'
+)
+provider.remote_photo_url = url
+provider.save!
+
+15.times do
+User.new(
+first_name: Faker::Name.first_name,
+last_name: Faker::Name.last_name,
+role: 'provider',
+email: Faker::Internet.email,
 password: '123456'
 ).save!
+end
 
 puts 'Creating services...'
 
+
+service = Service.new(
+    category: 'See a doctor',
+    address: '10 rue saint maur, Paris',
+    price: 0,
+    user_id: 1,
+    )
+service.save!
+  puts "DONE"
+
+service1 = Service.new(
+    category: 'See a doctor',
+    address: '11 rue Duranti, 75011 Paris',
+    price: 0,
+    user_id: rand(2..15),
+    )
+service1.save!
+  puts "DONE"
+
+service2 = Service.new(
+  category: 'See a doctor',
+  address: '10 villa gaudelet, 75011 Paris',
+  price: 0,
+  user_id: rand(2..15),
+  )
+service2.save!
+puts "DONE"
+
 20.times do
   Service.new(
-    category: ['Get assistance', 'Find a room', 'See a doctor', 'Eat some food', 'Have a shower', 'Get a haircut'].sample,
+    category: ['Get assistance', 'Find a room', 'Eat some food', 'Have a shower', 'Get a haircut'].sample,
     address: Faker::Address.street_address,
     price: rand(100),
-    user_id: rand(1..15),
+    user_id: rand(2..15),
     ).save!
   puts "DONE"
 end
