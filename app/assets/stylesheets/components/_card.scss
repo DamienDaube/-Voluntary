@@ -2,8 +2,14 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  > div:nth-child(3) {
+  #back-to-service {
     flex: 0 0 100%
+  }
+}
+#agenda-main-container {
+  justify-content: center;
+  .cards-container {
+    flex: 0 0 50%;
   }
 }
 $flex-item-padding: 10px;
@@ -22,13 +28,6 @@ $flex-item-padding: 10px;
   top: calc(#{$navbar-height} + #{$flex-item-padding}) !important;
   margin-top: $flex-item-padding;
 }
-
-
-
-
-
-
-
 .card {
   height: 175px;
   border-radius: 10px;
@@ -42,10 +41,74 @@ $flex-item-padding: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   font-size: 25px;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
-  button {
-    margin: 110px 45%;
-    position: relative;
-    z-index: 1000;
+  .card-book-button {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    button, a {
+      display: block;
+      margin: auto;
+      position: relative;
+      z-index: 1000;
+    }
+    a {
+      display: inline;
+      top: 100px;
+    }
+  }
+  .card-confirm-button {
+    top: 95px;
+    width: 100%;
+    button, a {
+      display: block;
+      margin: auto;
+      position: relative;
+      z-index: 1000;
+    }
+    a {
+      display: inline;
+      top: 100px;
+    }
+  }
+  .card-cancel-button {
+    position: absolute;
+    top: 185px;
+    left: 100px;
+    width: 100%;
+    button, a {
+      display: block;
+      margin: auto;
+      position: relative;
+      z-index: 1000;
+    }
+    a {
+      display: inline;
+      top: 100px;
+    }
+  }
+  .card-status {
+    position: absolute;
+    top: 140px;
+    right: 10px;
+    font-size: 20px;
+  }
+  .card-date {
+    position: absolute;
+    white-space: nowrap;
+    top: 145px;
+    left: 10px;
+    font-size: 15px;
+  }
+  .card-user {
+    position: absolute;
+    white-space: nowrap;
+    top: 100px;
+    left: 10px;
+  }
+  .card-price {
+    position: absolute;
+    top: 5px;
+    right: 10px;
   }
   .card-background {
     border-radius: 10px;

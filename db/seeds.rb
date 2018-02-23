@@ -17,7 +17,7 @@ puts 'Creating users...'
 url = 'http://res.cloudinary.com/dwa3usnol/image/upload/v1519384644/Pierre.jpg'
 user = User.new(
 first_name: 'Pierre',
-last_name: 'Dr Girbau',
+last_name: 'Girbau',
 role: 'beneficiary',
 email: 'homeless@gmail.com',
 password: '123456'

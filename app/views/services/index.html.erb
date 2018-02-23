@@ -13,10 +13,12 @@
             <% end  %>
           </div>
 
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/DamienDaube">
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#booking-service-<%= service.id %>">
-          Book
-        </button>
+          <div class="card-book-button">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#booking-service-<%= service.id %>">
+            Book
+          </button>
+
+          </div>
       </div>
       <!-- Button trigger modal -->
       <!-- Modal -->
@@ -37,7 +39,7 @@
   </div>
   <div id="map" data-markers="<%= @markers.to_json %>">
   </div>
-  <div>
+  <div id="back-to-service">
     <%= link_to "Back to service list", service_categories_path, class: "btn btn-success" %>
   </div>
 </div>
