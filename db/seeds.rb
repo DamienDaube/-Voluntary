@@ -17,7 +17,7 @@ puts 'Creating users...'
 url = 'http://res.cloudinary.com/dwa3usnol/image/upload/v1519384644/Pierre.jpg'
 user = User.new(
 first_name: 'Pierre',
-last_name: 'Dr Girbau',
+last_name: 'Girbau',
 role: 'beneficiary',
 email: 'homeless@gmail.com',
 password: '123456'
@@ -36,6 +36,28 @@ password: '123456'
 provider.remote_photo_url = url
 provider.save!
 
+url = 'http://res.cloudinary.com/dwa3usnol/image/upload/v1519383411/Noam.png'
+provider1 = User.new(
+first_name: 'Maxime',
+last_name: 'Lima',
+role: 'provider',
+email: 'maxime.lima@gmail.com',
+password: '123456'
+)
+provider.remote_photo_url = url
+provider1.save!
+
+url = 'http://res.cloudinary.com/dwa3usnol/image/upload/v1519383411/Noam.png'
+provider1 = User.new(
+first_name: 'jean',
+last_name: 'Dupras',
+role: 'provider',
+email: 'jean.dupras@gmail.com',
+password: '123456'
+)
+provider.remote_photo_url = url
+provider1.save!
+
 15.times do
 User.new(
 first_name: Faker::Name.first_name,
@@ -53,7 +75,7 @@ service = Service.new(
     category: 'See a doctor',
     address: '10 rue saint maur, Paris',
     price: 0,
-    user_id: 1,
+    user_id: 2,
     )
 service.save!
   puts "DONE"
@@ -88,15 +110,6 @@ end
 
 puts 'Creating bookings...'
 
-20.times do
-  Booking.new(
-    start_date: Faker::Date.between(Date.today, 5.days.from_now),
-    end_date: Faker::Date.between(5.days.from_now, 7.days.from_now),
-    status: 'pending',
-    paid: false,
-    user_id: rand(1..15),
-    service_id: rand(1..20),
-    ).save!
-end
+
 
 puts 'Finished!'
