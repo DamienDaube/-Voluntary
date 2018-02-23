@@ -21,9 +21,6 @@ $flex-item-padding: 10px;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: calc(#{$navbar-height} + #{$flex-item-padding}) !important;
   margin-top: $flex-item-padding;
-  // > div {
-  //   left: 50px !important;
-  // }
 }
 
 
