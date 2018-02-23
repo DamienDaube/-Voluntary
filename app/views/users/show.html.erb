@@ -13,6 +13,7 @@
           <div class="card-description">
             <h2><%= booking.service.user.first_name %> <%= booking.service.user.last_name %></h2>
             <p><%= booking.service.price %> €</p>
+            <p> Booking Number: <%= booking.id %> </p>
             <p>Date: <%= booking.start_date %></p>
             <p>Status: <%= booking.status %></p>
           </div>
@@ -26,22 +27,25 @@
 
       <% elsif @user.role =="provider" %>
 
-      <% @bookings.each do |booking| %>
+      <h2> Hi <%= @user.first_name %>, Your Agenda </h2>
+      <% @provider_bookings.each do |booking| %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url()">
         <div class="class card-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url()""></div>
-        <div class="card-category">Customer: <%= booking.user.first_name %> <%= booking.user.last_name %></div>
+        <div class="card-category">Beneficiary: <%= booking.user.first_name %> <%= booking.user.last_name %></div>
         <div class="card-description">
+          <p> Booking Number: <%= booking.id %> </p>
           <h2>Date: <%= booking.start_date %></h2>
-          <h2>Status= <%= booking.status %></h2>
-          <%if booking.status == "Pending" %>
-          <%= link_to "Confirm", booking_path(booking), method: :patch, class: 'btn btn-primary' %>
-          <% end %>
+          <h2>Status: <%= booking.status %></h2>
         </div>
-        <%= link_to "Cancel", booking_path(booking), method: :delete, class: 'btn btn-primary' %> </h2>
+        <div>
+        <%if booking.status == "pending" %>
+          <h2><%= link_to "Confirm", booking_path(booking), method: :patch, class: 'btn btn-primary' %> </h2>
+        <% end %>
+        <h2><%= link_to "Cancel", booking_path(booking), method: :delete, class: 'btn btn-primary' %> </h2>
+        </div>
       </div>
       <% end %>
       <% end %>
-
     </div>
   </div>
 </div>

@@ -1,3 +1,37 @@
+.main-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  > div:nth-child(3) {
+    flex: 0 0 100%
+  }
+}
+$flex-item-padding: 10px;
+.cards-container {
+  flex: 1 1 auto;
+  margin-right: $flex-item-padding;
+  padding: 10px;
+  > .card {
+    margin: 0 0 10px;
+  }
+}
+#map {
+  flex: 0 0 48%;
+  height: 80vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: calc(#{$navbar-height} + #{$flex-item-padding}) !important;
+  margin-top: $flex-item-padding;
+  // > div {
+  //   left: 50px !important;
+  // }
+}
+
+
+
+
+
+
+
 .card {
   height: 175px;
   border-radius: 10px;
