@@ -43,7 +43,21 @@ $flex-item-padding: 10px;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
   .card-book-button {
     position: absolute;
-    top: 80px;
+    top: 110px;
+    width: 100%;
+    button, a {
+      display: block;
+      margin: auto;
+      position: relative;
+      z-index: 1000;
+    }
+    a {
+      display: inline;
+      top: 100px;
+    }
+  }
+  .card-delete-button {
+    top: 95px;
     width: 100%;
     button, a {
       display: block;
@@ -71,7 +85,7 @@ $flex-item-padding: 10px;
     }
   }
   .card-cancel-button {
-    position: absolute;
+    position: relative;
     top: 185px;
     left: 100px;
     width: 100%;
