@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <h2>Sign up</h2>
+    <hr>
+
+<%= form_for :qr_code, url: qr_codes_path do |f| %>
+<div class="form-row">
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+  </div>
+  <div class="form-actions" class="btn">
+  <%= f.submit %>
+  </div>
+<% end %>
+
+  </div>
+</div>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :qr_codes, only: [:new, :create]
+  root to: "qr_codes#new"
+
   mount ForestLiana::Engine => '/forest'
   devise_for :users
   root 'users#show'
